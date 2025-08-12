@@ -12,15 +12,15 @@ export class CategoriaController {
     findAll(): Promise<CategoriaEntity[]> {
         return this.categoriaService.findAll();
     }
-    @Get('/:id')
-    @HttpCode(HttpStatus.OK)
-    findById(@Param('id', ParseIntPipe) id: number): Promise<CategoriaEntity> {
-        return this.categoriaService.findById(id);
-    }
     @Get('/name/:name')
     @HttpCode(HttpStatus.OK)
     findByAllTitulo(@Param('name') titulo: string): Promise<CategoriaEntity[]> {
         return this.categoriaService.findAllByTitulo(titulo);
+    }
+    @Get('/:id')
+    @HttpCode(HttpStatus.OK)
+    findById(@Param('id', ParseIntPipe) id: number): Promise<CategoriaEntity> {
+        return this.categoriaService.findById(id);
     }
     @Post()
     @HttpCode(HttpStatus.CREATED)
@@ -30,7 +30,7 @@ export class CategoriaController {
     @Put()
     @HttpCode(HttpStatus.OK)
     update(@Body() categoria: CategoriaEntity): Promise<CategoriaEntity> {
-        return this.categoriaService.uptade(categoria);
+        return this.categoriaService.update(categoria);
     }
     @Delete('/:id')
     @HttpCode(HttpStatus.NO_CONTENT)

@@ -44,7 +44,7 @@ export class CategoriaService {
     async create(categoria: CategoriaEntity): Promise<CategoriaEntity> {
         return await this.categoriaRepository.save(categoria);
     }
-    async uptade(categoria: CategoriaEntity): Promise<CategoriaEntity> {
+    async update(categoria: CategoriaEntity): Promise<CategoriaEntity> {
 
         await this.findById(categoria.id)
 
