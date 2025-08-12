@@ -34,7 +34,8 @@ export class CategoriaController {
     }
     @Delete('/:id')
     @HttpCode(HttpStatus.NO_CONTENT)
-    delete(@Param('id', ParseIntPipe) id: number) {
-        return this.categoriaService.delete(id);
+    async delete(@Param('id', ParseIntPipe) id: number) {
+        await this.categoriaService.delete(id)
+        return {message: 'Categoria deletada com Sucesso!'};
     }
 }
