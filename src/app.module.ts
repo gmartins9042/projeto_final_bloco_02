@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { CategoriaEntity } from './categoria/entities/categoria.entity';
 import { CategoriaModule } from './categoria/categoria.module';
 import { ProdutoEntity } from './produto/entities/produto.entity';
+import { ProdutoModule } from './produto/produto.module';
 
 @Module({
   imports: [
@@ -21,6 +22,8 @@ import { ProdutoEntity } from './produto/entities/produto.entity';
       synchronize: process.env.NODE_ENV === 'development',
       logging: process.env.NODE_ENV === 'development',
     }),
-  CategoriaModule, ProdutoEntity],
+  CategoriaModule, 
+  ProdutoModule,
+],
 })
 export class AppModule {}
