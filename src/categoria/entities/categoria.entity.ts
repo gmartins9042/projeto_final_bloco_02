@@ -1,8 +1,9 @@
 import { IsBoolean, IsNotEmpty } from "class-validator";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { ProdutoEntity } from "../../produto/entities/produto.entity";
 
 
-@Entity({ name: 'tb_farmacia' })
+@Entity({ name: 'categoria' })
 export class CategoriaEntity {
 
     @PrimaryGeneratedColumn()
@@ -10,7 +11,7 @@ export class CategoriaEntity {
 
     @IsNotEmpty()
     @Column({
-        length: 100, nullable: true 
+        length: 100
     })
     name: string;
 
@@ -31,4 +32,8 @@ export class CategoriaEntity {
     @IsNotEmpty()
     @Column({ type: 'int', nullable: false })
     unit: number;
+
+    @OneToMany(() => ProdutoEntity, (produto) => produto.categoria)
+
+    produto: ProdutoEntity[]
 }

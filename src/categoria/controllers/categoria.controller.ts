@@ -24,8 +24,8 @@ export class CategoriaController {
     }
     @Post()
     @HttpCode(HttpStatus.CREATED)
-    create(@Body() categoria: CategoriaEntity): Promise<CategoriaEntity> {
-        return this.categoriaService.create(categoria)
+    async create(@Body() categoria: CategoriaEntity): Promise<CategoriaEntity> {
+        return await this.categoriaService.create(categoria)
     }
     @Put()
     @HttpCode(HttpStatus.OK)
